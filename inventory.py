@@ -3,7 +3,7 @@ import time
 
 """
 ========================================================
-CHERWELL AUTOMATION SCRIPT
+CHERWELL INVENTORY AUTOMATION SCRIPT
 ========================================================
 
 The script carries out the following steps for each asset tag:
@@ -15,13 +15,11 @@ The script carries out the following steps for each asset tag:
 5. It waits for the search results to appear.
 6. It clicks on the first search result.
 7. It clicks on the location field, selects any existing text, deletes it, and types in the new location.
-8. It clicks on the inventory date field, selects any date, and then selects today's date.
+8. It clicks on the inventory date field, and then selects today's date.
 9. It scrolls down.
 10. It clicks on the save button.
 11. It clicks on the back button to return to the search page.
 12. It waits for it to go back to the search page before starting the next asset tag.
-
-Refer to the existing script below for execution instructions and important notes.
 
 """
 
@@ -38,7 +36,7 @@ scroll_location = {"x": 1500, "y": 650}
 SCROLL_AMOUNT = 350
 
 # Define the new location of the asset
-newLocation = "BBY-SW03-3695"
+newLocation = ""
 
 # Define the delay time in between interactions
 SHORT_DELAY = 2

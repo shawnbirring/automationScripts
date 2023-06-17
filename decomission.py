@@ -22,17 +22,6 @@ The script carries out the following steps for each asset tag:
 12. It clicks on the back button to return to the search page.
 13. It waits for it to go back to the search page before starting the next asset tag.
 
-To run the script:
-
-1. Make sure Python is installed on your computer. If not, you can download Python from https://www.python.org/downloads/.
-2. Download and install Visual Studio Code from https://code.visualstudio.com/download. After installing, add the Python extension to Visual Studio Code.
-3. Open Visual Studio Code, and paste this script into a new file.
-4. Replace the asset_tags_str with the asset tags you want to update. Make sure each asset tag is in a new line and enclosed with triple quotes.
-5. Save the file with a .py extension.
-6. Ensure the x and y coordinates of the buttons are correct with your machine.
-7. Press on the run icon at the top right of vs code to execute the script.
-
-
 IMPORTANT: 
 
 - To stop the script from running while it is, move your mouse to the top left of the screen.
