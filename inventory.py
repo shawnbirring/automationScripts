@@ -110,9 +110,6 @@ for i, asset_tag in enumerate(asset_tags):
     pyautogui.click(**back_button)
     time.sleep(LONG_DELAY)
 
-    print("  Waiting for it to go back to the search page")
-    time.sleep(SHORT_DELAY)
-
     print(f"Completed asset tag {i + 1}/{len(asset_tags)}: {asset_tag}\n")
 
 print("All asset tags completed")
