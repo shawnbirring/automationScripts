@@ -1,54 +1,64 @@
 import pyautogui
 import time
+import winsound
+
+"""
+========================================================
+CHERWELL MOBILE LIVE INVENTORY AUTOMATION SCRIPT
+========================================================
+"""
 
 back_button = {"x": 28, "y": 59}
 search_bar = {"x": 185, "y": 229}
 first_search_result = {"x": 267, "y": 344}
-save_button = {"x": 920, "y": 995}
 location_field = {"x": 886, "y": 418}
 inventory_date_field = {"x": 741, "y": 721}
 today_date = {"x": 677, "y": 885}
-scroll_location = {"x": 1500, "y": 650}
 
-SCROLL_AMOUNT = 350
-newLocation = ""
+# Define the new location of the asset
+newLocation = "BBY-SE12-301"
+
+# Define the delay time in between interactions
 SHORT_DELAY = 0
-LONG_DELAY = 0
+LONG_DELAY = 1
 
-# Run indefinitely until manually stopped
 while True:
+    # Switch to the terminal
+    print("Switching to the terminal")
+    pyautogui.hotkey("alt", "tab")
+    time.sleep(SHORT_DELAY)
 
-    asset_tag = input("Please enter the asset tag or type 'exit' to stop the program: ")
-    
-    if asset_tag.lower() == 'exit':
-        break
+    asset_tag = input("Enter the asset tag: ")
+    print("Starting asset tag:", asset_tag)
 
-    asset_tag = asset_tag.replace("-", "")
+    # Switch to Cherwell
+    print("Switching to Cherwell")
+    pyautogui.hotkey("alt", "tab")
+    time.sleep(SHORT_DELAY)
 
-    print(f"Processing asset tag: {asset_tag}")
-
+    # Click on the search bar
     print("  Clicking on the search bar")
     pyautogui.click(**search_bar)
 
+    # Select and delete any existing text in the search bar
     print("  Selecting any existing text and deleting it")
     pyautogui.hotkey("ctrl", "a")
     pyautogui.press("backspace")
 
+    # Type the asset tag and press Enter to start the search
     print(f"  Typing the asset tag {asset_tag} and pressing Enter to search")
     pyautogui.write(asset_tag)
     pyautogui.press("enter")
     print("  Waiting for search results")
-    time.sleep(LONG_DELAY)
+    time.sleep(SHORT_DELAY)
 
+    # Double click on the first search result
     print("  Clicking on the first search result")
     pyautogui.click(**first_search_result)
     pyautogui.click(**first_search_result)
     time.sleep(LONG_DELAY)
 
-    print("  Scrolling up to the top of the page")
-    pyautogui.moveTo(**scroll_location)
-    pyautogui.scroll(SCROLL_AMOUNT)
-
+    # Update the location field with the new location
     print("  Updating the location field")
     pyautogui.click(**location_field)
     pyautogui.hotkey("ctrl", "a")
@@ -56,21 +66,17 @@ while True:
     pyautogui.write(newLocation)
     time.sleep(SHORT_DELAY)
 
+    # Update the inventory date field to today's date
     print("  Updating the inventory date field")
     pyautogui.click(**inventory_date_field)
     time.sleep(SHORT_DELAY)
     pyautogui.click(**today_date)
     time.sleep(SHORT_DELAY)
 
-    print("  Scrolling down to the save button")
-    pyautogui.moveTo(**scroll_location)
-    pyautogui.scroll(-SCROLL_AMOUNT)
-    print("  Clicking on the save button")
-    pyautogui.click(**save_button)
-    time.sleep(LONG_DELAY)
-
     print("  Clicking on the back button")
     pyautogui.click(**back_button)
-    time.sleep(LONG_DELAY)
+    time.sleep(SHORT_DELAY)
 
+    # Play a sound to indicate that the asset has been updated, and print the completed asset tag
     print(f"Completed asset tag: {asset_tag}\n")
+    winsound.Beep(1000, 1000)
