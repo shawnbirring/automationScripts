@@ -33,7 +33,7 @@ inventory_date_field = {"x": 741, "y": 721}
 today_date = {"x": 677, "y": 885}
 
 # Define the new location of the asset
-newLocation = "BBY-SE12-301"
+newLocation = ""
 
 # Define the delay time in between interactions
 SHORT_DELAY = 1
@@ -46,6 +46,8 @@ asset_tags_str = """
 
 # Split the string into a list of asset tags and remove the "-"
 asset_tags = [tag.replace("-", "") for tag in asset_tags_str.split()]
+
+time.sleep(SHORT_DELAY)
 
 # Iterate over the list of asset tags
 for i, asset_tag in enumerate(asset_tags):

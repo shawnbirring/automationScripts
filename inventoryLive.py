@@ -16,18 +16,19 @@ inventory_date_field = {"x": 741, "y": 721}
 today_date = {"x": 677, "y": 885}
 
 # Define the new location of the asset
-newLocation = "BBY-SE12-301"
+newLocation = ""
 
 # Define the delay time in between interactions
-SHORT_DELAY = 0
-LONG_DELAY = 1
+SHORT_DELAY = 1
+LONG_DELAY = 2
 
 while True:
     # Switch to the terminal
     print("Switching to the terminal")
     pyautogui.hotkey("alt", "tab")
-    time.sleep(SHORT_DELAY)
 
+    # Prompt the user to enter the asset tag
+    winsound.Beep(1000, 1000)
     asset_tag = input("Enter the asset tag: ")
     print("Starting asset tag:", asset_tag)
 
@@ -50,7 +51,7 @@ while True:
     pyautogui.write(asset_tag)
     pyautogui.press("enter")
     print("  Waiting for search results")
-    time.sleep(SHORT_DELAY)
+    time.sleep(LONG_DELAY)
 
     # Double click on the first search result
     print("  Clicking on the first search result")
@@ -79,4 +80,3 @@ while True:
 
     # Play a sound to indicate that the asset has been updated, and print the completed asset tag
     print(f"Completed asset tag: {asset_tag}\n")
-    winsound.Beep(1000, 1000)
