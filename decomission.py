@@ -46,8 +46,8 @@ decommision_button = {"x": 123, "y": 250}
 newLocation = "BBY-SW01-2055"
 
 # Define the delay time in between interactions
-SHORT_DELAY = 2
-LONG_DELAY = 3
+SHORT_DELAY = 1.5
+LONG_DELAY = 2.5
 
 # All asset tags in one string
 asset_tags_str = """
@@ -76,7 +76,7 @@ for i, asset_tag in enumerate(asset_tags):
     pyautogui.write(asset_tag)
     pyautogui.press("enter")
     print("  Waiting for search results")
-    time.sleep(LONG_DELAY)
+    time.sleep(SHORT_DELAY)
 
     # Double click on the first search result
     print("  Clicking on the first search result")
@@ -121,13 +121,10 @@ for i, asset_tag in enumerate(asset_tags):
     # Click on the back button to return to the search page
     print("  Clicking on the back button")
     pyautogui.click(**back_button)
-    time.sleep(LONG_DELAY)
+    time.sleep(SHORT_DELAY)
 
     # Display a message indicating the completion of the current asset tag
     print(f"Completed asset tag {i + 1}/{len(asset_tags)}: {asset_tag}\n")
 
 # Display a message indicating the completion of all asset tags
-print("All asset tags completed")
-
-
 print("All asset tags completed")
